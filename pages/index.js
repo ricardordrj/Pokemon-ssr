@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
                     <article className={styles.card} key={pokemon.id}>
                         <Link href={`/pokemon/${pokemon.id}`}>
                             <a>
-                                <img
+                                <Image
                                     src={`https://pokemon-ssr.s3.sa-east-1.amazonaws.com/pokemon-main/${pokemon.image}`}
                                     alt={pokemon.name}
                                 />

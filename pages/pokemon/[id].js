@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../../styles/Details.module.css";
 
 const Details = () => {
@@ -35,7 +36,7 @@ const Details = () => {
                 </Link>
                 <section className={styles.layout}>
                     <header>
-                        <img
+                        <Image
                             classname={styles.picture}
                             src={`https://pokemon-ssr.s3.sa-east-1.amazonaws.com/pokemon-main/${pokemon?.image}`}
                             alt={pokemon?.name}
