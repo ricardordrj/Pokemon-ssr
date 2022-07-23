@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
-    const [pokemons, setPokemons] = useState([]);
+export async function getServerSideProps() {
+    const res = await fetch(
+        "https://pokemon-ssr.s3.sa-east-1.amazonaws.com/pokemon-main/index.json"
+    );
 
-    useEffect(() => {
-        const getPokemon = async () => {
-            const res = await fetch(
-                "https://pokemon-ssr.s3.sa-east-1.amazonaws.com/pokemon-main/index.json"
-            );
-            setPokemons(await res.json());
-        };
+    return { props: { pokemons: await res.json() } };
+}
 
-        getPokemon();
-    }, []);
+export default function Home({ pokemons }) {
     return (
         <div className={styles.container}>
             <Head>
@@ -45,8 +40,6 @@ export default function Home() {
                     </article>
                 ))}
             </main>
-
-            <footer className={styles.footer}></footer>
         </div>
     );
 }
