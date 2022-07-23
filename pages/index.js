@@ -36,6 +36,8 @@ export default function Home() {
                                 <Image
                                     src={`https://pokemon-ssr.s3.sa-east-1.amazonaws.com/pokemon-main/${pokemon.image}`}
                                     alt={pokemon.name}
+                                    width={200}
+                                    height={200}
                                 />
                                 <h3>{pokemon.name}</h3>
                             </a>
